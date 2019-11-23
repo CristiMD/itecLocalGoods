@@ -9,7 +9,7 @@ class VerifyUser extends Model
     protected $guarded = [];
  
     /**
-     * Verify user
+     * User
      */
     public function user()
     {

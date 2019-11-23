@@ -36,4 +36,18 @@ class ProfileController extends Controller
         $user->save();
         return response()->json(compact('user'));
     }
+
+    /**
+     * Update user
+     *
+     * @param  Request $request
+     * @return App\User
+     */
+    public function deactivate(Request $request){
+        $user = $request->user();
+        User::where('userid','=', $user->userid)->delete();
+       // JobApplication::where('employer_id','=', Auth::id())->delete();
+       // Job::where('user_id','=', Auth::id())->delete();
+        return response()->json(['message' => 'Successfully delete account']);
+    }
 }

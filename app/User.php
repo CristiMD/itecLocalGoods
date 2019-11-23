@@ -17,7 +17,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'is_verified','userid'
+        'name', 'email', 'password','is_company','address', 'phone', 'is_verified','userid'
     ];
 
     /**
@@ -64,6 +64,19 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
+    /**
+     * User is admin
+     */
+    public function is_admin(){
+        return $this->is_admin === '1';
+    }
+
+    /**
+     * User is company
+     */
+    public function is_company(){
+        return $this->is_company === '1';
+    }
     /**
      * Verify user
      */
